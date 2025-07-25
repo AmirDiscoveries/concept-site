@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept Contracting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #fff;
+  padding: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #E6E6E6;
+  height: 70px;
+  width: 100%;
+  max-width: 1400px;
+  border-radius: 35px;
+  margin: 0 auto 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 100px; /* Adjusted: was 200px */
+  width: auto; /* Adjusted: was 200px */
+}
+
+.navbar-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 40px;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  gap: 60px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #666;
+}
+
+.navbar-button {
+  flex-shrink: 0;
+}
+
+.signup-btn {
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+/* Hero Section - Redesigned */
+.hero-section {
+  width: 100%;
+  max-width: 1400px;
+  height: 800px;
+  margin: 0 auto 40px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* White background for the bottom 1/4 */
+}
+
+.hero-top-background {
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  background-color: #f5f5f5;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  z-index: 0;
+}
+
+.sunrise-circle {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 550px 550px 550px 550px;
+  background-color: #d6df20;
+  z-index: 0;
+}
+
+.building-image {
+  width: 680px;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80%;
+  max-width: 150%;
+  z-index: 2;
+  object-fit: fill;
+  object-position: bottom;
+}
+
+.concept-text {
+  position: absolute;
+  top: 16%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 2px black;
+  text-stroke: 2px black;
+  font-size: 160px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.1;
+  width: 100%;
+  z-index: 1;
+  letter-spacing: 5px;
+}
+
+.design-text, .for-life-text {
+  position: absolute;
+  font-size: 34px;
+  font-weight: 600;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 4;
+  white-space: nowrap;
+}
+.design-text {
+  top: 30%;
+  left: 50%;
+  transform: translateX(-200%);
+}
+.for-life-text {
+  top: 30%;
+  left: 45%;
+  transform: translateX(100%);
+}
+
+/* Hero Buttons */
+.hero-button {
+  position: absolute;
+  background-color: #d6df20;
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 3;
+  bottom: 24%;
+}
+
+.hero-button:hover {
+  background-color: #333;
+  transform: translateY(-3px);
+}
+
+.hero-button.left {
+  left: calc(50% - 570px);
+}
+
+.hero-button.right {
+  right: calc(50% - 570px);
+}
+
+/* Stats Section */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  background-color: #f5f5f5;
+  padding: 25px 50px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  max-width: 900px;
+  width: 90%;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #000;
+}
+
+.stat-item p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Parallax Effect */
+@media (prefers-reduced-motion: no-preference) {
+  .building-image {
+    transition: transform 0.4s ease-out;
+  }
+  .hero-section:hover .building-image {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+/* Why Us Section */
+.why-us-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 100px auto 0;
+  padding: 60px 40px;
+  background-color: #ffffff;
+  position: relative;
+  overflow: visible; /* Allow image to extend outside */
+  z-index: 0;
+}
+.why-us-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.why-us-content {
+  flex: 1;
+}
+.why-us-title {
+  font-size: 48px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.why-us-badges {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.badge {
+  background-color: #f5f5a5;
+  color: #000000;
+  padding: 10px 30px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+.why-us-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 122.3%;
+}
+.why-us-image-container {
+  position: absolute;
+  right: -90px; /* Move it more to the left */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 600px; /* Make it bigger */
+  height: 600px; /* Make it bigger */
+  z-index: 10;
+}
+
+.why-us-circle {
+  width: 500px; /* Bigger circle */
+  height: 500px; /* Bigger circle */
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.why-us-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Alternative positioning - if you want it to overlap with services section */
+.services-section {
+  width: 100vw;
+  margin: -40px auto 40px; /* Minimal negative margin */
+  padding: 80px 0 60px; /* Standard padding */
+  background-color: #E6E6E6;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  z-index: 1;
+}
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.services-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.services-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 50px;
+  line-height: 1.4;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.service-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.service-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
+}
+.service-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+}
+.service-description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+.service-btn {
+  background-color: #D7DF21;
+  color: #000000;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Projects Section */
+.projects-section {
+  width: 100%;
+  margin: 40px 0;
+  padding: 60px 40px;
+  background: none;
+  position: relative;
+}
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.projects-header {
+  margin-bottom: 40px;
+  text-align: left;
+}
+.projects-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.projects-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.projects-showcase {
+  position: relative;
+  width: 100%;
+  height: 703px;
+  border-radius: 41px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url('image/WhatsApp\ Image\ 2025-07-23\ at\ 14.52.06_d4646b7c-01\ 1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.projects-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+  border-radius: 41px;
+  flex-wrap: wrap;
+}
+.project-image-card {
+  width: 200px;
+  height: 250px;
+  border-radius: 41px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-image-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.projects-button-container {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.projects-btn {
+  background-color: #D7DF21;
+  color: #000000;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Section - Updated */
+.footer-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px auto 0;
+  padding: 40px;
+  background-color: #E6E6E6;
+  border-radius: 35px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* 👈 Align all columns to the bottom */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* 👈 Ensures content stacks from bottom */
+}
+.footer-logo-container {
+  margin-bottom: 20px;
+}
+.footer-logo-icon {
+  width: 200px; /* or even 220px */
+  height: auto;
+}
+.footer-copyright {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 30px; /* Space between copyright and contact info */
+  text-transform: uppercase;
+  color: #333;
+}
+.footer-heading {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+}
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-nav-list li {
+  margin-bottom: 12px; /* Space between list items */
+}
+.footer-nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 12px;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px; /* Space between contact items */
+  font-size: 12px;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.icon-frame {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF; /* White background for icons */
+  border-radius: 0; /* Square shape for icon background */
+}
+.working-hours {
+  font-size: 12px;
+  margin-bottom: 25px; /* Space between working hours and social icons */
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Hover States */
+.signup-btn:hover {
+  background-color: rgb(0, 0, 0);
+}
+.service-btn:hover {
+  background-color: #c5cd1e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+.projects-btn:hover {
+  background-color: #c5cd1e;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.footer-nav-link:hover {
+  color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .navbar-nav {
+    gap: 40px;
+  }
+  .why-us-container {
+    gap: 40px;
+  }
+  .why-us-circle {
+    width: 350px;
+    height: 350px;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-container {
+    padding: 0 30px;
+  }
+  .navbar-nav {
+    gap: 30px;
+  }
+  .why-us-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .why-us-image-container {
+    align-self: center;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+  .footer-col {
+    width: 100%;
+    margin-bottom: 30px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+  .hero-section {
+    height: 600px;
+  }
+  .hero-top-background {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 75%;
+  }
+  .sunrise-circle {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    bottom: 240px;
+  }
+  .concept-text {
+    font-size: 60px;
+    top: 20%;
+    -webkit-text-stroke: 1.5px black;
+    text-stroke: 1.5px black;
+  }
+  .design-text, .for-life-text {
+    font-size: 16px;
+    top: 26%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+  }
+
+  .design-text {
+    left: 20%;
+  }
+  .for-life-text {
+    left: 80%;
+  }
+
+  .building-image {
+    top: 15%;
+    width: 100%;
+    height: 60%;
+  }
+  .hero-stats {
+    gap: 20px;
+    padding: 20px;
+    max-width: 90%; /* Wider on tablet */
+  }
+  .hero-button {
+    bottom: 18%; /* Adjust to be clearly in the white section */
+  }
+  .hero-button.left {
+    visibility: hidden;
+  }
+  .hero-button.right {
+    visibility: hidden;
+  }
+  .why-us-title, .services-title, .projects-title {
+    font-size: 32px;
+  }
+  .why-us-text {
+    font-size: 14px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .projects-showcase {
+    height: 400px;
+  }
+  .project-image-card {
+    width: 140px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    height: 60px;
+    border-radius: 30px;
+  }
+  .hero-section {
+    height: 350px;
+  }
+  .concept-text {
+    font-size: 28px;
+  }
+  .why-us-title, .services-title, .projects-title {
+    font-size: 24px;
+  }
+  .badge {
+    padding: 6px 16px;
+    font-size: 11px;
+  }
+  .services-subtitle {
+    font-size: 14px;
+  }
+  .service-description {
+    font-size: 13px;
+  }
+  .project-image-card {
+    width: 100px;
+    height: 80px;
+  }
+  .projects-btn {
+    padding: 12px 24px;
+    font-size: 12px;
+  }
+  .footer-logo-icon {
+    width: 150px;
+  }
+  .footer-heading {
+    font-size: 14px;
+  }
+  .footer-nav-link,
+  .contact-item,
+  .working-hours {
+    font-size: 11px;
+  }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="./image/Concept_Logo_Black_April2025-01 1.png" alt="Concept Logo" class="logo-img">
+            </div>
+            <div class="navbar-menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link">PROJECTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#for-sale" class="nav-link">FOR SALE</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-button">
+                <button class="signup-btn">SIGN UP</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="hero-section">
+        <div class="hero-top-background"></div>
+        <div class="sunrise-circle"></div>
+        <img src="./image/a58adb70-65e2-426a-bc5c-ea38c871de9e 1.png" alt="Modern Building" class="building-image">
+        <div class="concept-text">CONCEPT</div>
+        <div class="design-text">DESIGN</div>
+        <div class="for-life-text">FOR LIFE.</div>
+
+        <button class="hero-button left">Our Services</button>
+        <button class="hero-button right">Contact Us</button>
+
+        <div class="hero-stats">
+            <div class="stat-item">
+                <h2>+500</h2>
+                <p>Happy Clients</p>
+            </div>
+            <div class="stat-item">
+                <p>Since</p>
+                <h2>1995</h2>
+                
+            </div>
+            <div class="stat-item">
+                <h2>+300</h2>
+                <p>Exterior Projects</p>
+            </div>
+        </div>
+    </div>
+    
+    <section class="why-us-section">
+        <div class="why-us-container">
+            <div class="why-us-content">
+                <h2 class="why-us-title">WHY US?</h2>
+                <div class="why-us-badges">
+                    <span class="badge">EXPERTISE</span>
+                    <span class="badge">CUSTOMIZATION</span>
+                    <span class="badge">TRUST</span>
+                </div>
+                <p class="why-us-text">
+                At Concept, we bring over 25 years of experience to every project,<br>
+                delivering expert solutions in real estate and interior design since 1995.Our <br>
+                deep industry knowledge allows us to handle each detail with precision and <br>
+                professionalism. What sets us apart is our commitment to customization,<br>
+                we carefully tailor every design and transaction to meet the unique needs <br>
+                and vision of each client. Above all, we value trust. We build long-term <br>
+                relationships through clear communication, honesty, and reliable service, <br>
+                making your journey with us smooth, transparent, and rewarding. <br>
+                </p>
+            </div>
+            <div class="why-us-image-container">
+                <div class="why-us-circle">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-pCHV7djrDQozXHiUyPXBQjrb8Cz0q8.png" alt="Professional contractor with hard hat" class="why-us-image">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services-section">
+        <div class="services-container">
+            <h2 class="services-title">OUR SERVICES</h2>
+            <p class="services-subtitle">
+                At Your Company Name, we believe real estate is more than just buying or<br>
+                selling property — it's about helping people find where life happens.
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="image/3d-render-house-plan 1.png" alt="Real Estate Development" class="service-image">
+                    <h3 class="service-title">REAL ESTATE DEVELOPMENT</h3>
+                    <p class="service-description">
+                        We build more than residences and commercial properties with expert market knowledge and personalized guidance.
+                    </p>
+                    <button class="service-btn">VIEW SERVICE</button>
+                </div>
+                <div class="service-card">
+                    <img src="image/architecture-blue-print 1.png" alt="Interior Design" class="service-image">
+                    <h3 class="service-title">INTERIOR DESIGN</h3>
+                    <p class="service-description">
+                        Transforming spaces into interiors tailored to your taste, turning every space into a reflection of your lifestyle.
+                    </p>
+                    <button class="service-btn">VIEW SERVICE</button>
+                </div>
+                <div class="service-card">
+                    <img src="image/view-3d-document-lawyer-s-day-celebration 1.png" alt="Legal Transactions" class="service-image">
+                    <h3 class="service-title">LEGAL TRANSACTIONS</h3>
+                    <p class="service-description">
+                        Expert legal support for seamless contracts, in registrations, ensuring secure, smooth, and compliant property deals.
+                    </p>
+                    <button class="service-btn">VIEW SERVICE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="projects-section" id="projects">
+        <div class="projects-container">
+            <div class="projects-header">
+                <h2 class="projects-title">PROJECT OF THE YEAR</h2>
+                <p class="projects-subtitle">MAYFADOUN 123</p>
+            </div>
+            <div class="projects-showcase">
+                <div class="projects-overlay">
+                    <div class="project-image-card">
+                        <img src="image/Untitled-2-05 1.png" alt="Project 1" class="project-image">
+                    </div>
+                    <div class="project-image-card">
+                        <img src="image/Untitled-2-03 1 (1).png" alt="Project 1" class="project-image">
+                    </div>
+                    <div class="project-image-card">
+                        <img src="image/Untitled-2-06 1.png" alt="Project 2" class="project-image">
+                    </div>
+                    <div class="project-image-card">
+                        <img src="image/Untitled-2-01 1.png" alt="Project 1" class="project-image">
+                    </div>
+                    <div class="project-image-card">
+                        <img src="image/Untitled-2-04 1 (1).png" alt="Project 3" class="project-image">
+                    </div>
+                </div>
+                <div class="projects-button-container">
+                    <button class="projects-btn">VIEW ALL PROJECTS</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo-container">
+                    <img src="image/Concept_Logo_Black_April2025-01 1.png" alt="Concept Logo" class="footer-logo-icon">
+                </div>
+                <p class="footer-copyright">© 2025 CONCEPT, DESIGNED FOR LIFE.</p>
+                <ul class="footer-contact-list">
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/icon_design.png" alt="location"></span> MAYFADOUN-NABATIVE-LEBANON
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/icon_design (1).png" alt="email"></span> COBCEPT@gmail.com
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/icon_design (2).png" alt="phone"></span> +961 000 000
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-heading">QUICK LINK</h3>
+                <ul class="footer-nav-list">
+                    <li><a href="#home" class="footer-nav-link">HOME</a></li>
+                    <li><a href="#services" class="footer-nav-link">SERVICES</a></li>
+                    <li><a href="#projects" class="footer-nav-link">PROJECTS</a></li>
+                    <li><a href="#for-sale" class="footer-nav-link">FOR SALE</a></li>
+                    <li><a href="#contact" class="footer-nav-link">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-heading">WORKING TIME</h3>
+                <p class="working-hours">MONDAY - FRIDAY<br>8 AM - 5 PM</p>
+                <ul class="footer-contact-list">
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/ELEMENTS (1).png" alt="phone"></span> +961 000 000
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/ELEMENTS (2).png" alt="social"></span> conseptconstruction
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/ELEMENTS.png" alt="social"></span> conseptconstruction
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const building = document.querySelector('.building-image');
+            const heroSection = document.querySelector('.hero-section');
+            
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.pageYOffset;
+                // Changed from 0.3 to -0.1 for a more common parallax effect (moves up as you scroll down)
+                const buildingOffset = scrollPosition * 0.1; 
+                
+                if (scrollPosition < heroSection.offsetHeight) {
+                    building.style.transform = `translateX(-50%) translateY(${buildingOffset}px)`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
