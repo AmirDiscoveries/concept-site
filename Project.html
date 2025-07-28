@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Concept Contracting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #fff;
+  padding: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #E6E6E6;
+  height: 70px;
+  width: 100%;
+  max-width: 1400px;
+  border-radius: 35px;
+  margin: 0 auto 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 100px;
+  width: auto;
+}
+
+.navbar-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 40px;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  gap: 60px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #666;
+}
+
+.nav-link.active {
+  color: #000;
+  font-weight: 700;
+}
+
+.navbar-button {
+  flex-shrink: 0;
+}
+
+.signup-btn {
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: #333;
+}
+
+/* Hero Section - Projects Version */
+.hero-section {
+  width: 100%;
+  max-width: 1400px;
+  height: 800px;
+  margin: 0 auto 40px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.hero-top-background {
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  background-color: #f5f5f5;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  z-index: 0;
+}
+
+.sunrise-circle {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 550px 550px 550px 550px;
+  background-color: #d6df20;
+  z-index: 0;
+}
+
+.building-image {
+  width: 680px;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80%;
+  max-width: 150%;
+  z-index: 2;
+  object-fit: fill;
+  object-position: bottom;
+}
+
+.projects-text {
+  position: absolute;
+  top: 16%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 2px black;
+  text-stroke: 2px black;
+  font-size: 160px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.1;
+  width: 100%;
+  z-index: 1;
+  letter-spacing: 5px;
+}
+
+.our-text, .portfolio-text {
+  position: absolute;
+  font-size: 34px;
+  font-weight: 600;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 4;
+  white-space: nowrap;
+}
+
+.our-text {
+  top: 30%;
+  left: 50%;
+  transform: translateX(-200%);
+}
+
+.portfolio-text {
+  top: 30%;
+  left: 45%;
+  transform: translateX(100%);
+}
+
+/* Hero Buttons */
+.hero-button {
+  position: absolute;
+  background-color: #d6df20;
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 3;
+  bottom: 24%;
+}
+
+.hero-button:hover {
+  background-color: #333;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.hero-button.left {
+  left: calc(50% - 570px);
+}
+
+.hero-button.right {
+  right: calc(50% - 570px);
+}
+
+/* Stats Section */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  background-color: #f5f5f5;
+  padding: 25px 50px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  max-width: 900px;
+  width: 90%;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #000;
+}
+
+.stat-item p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Parallax Effect */
+@media (prefers-reduced-motion: no-preference) {
+  .building-image {
+    transition: transform 0.4s ease-out;
+  }
+  .hero-section:hover .building-image {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .navbar-nav {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-container {
+    padding: 0 30px;
+  }
+  .navbar-nav {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+  .hero-section {
+    height: 600px;
+  }
+  .hero-top-background {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 75%;
+  }
+  .sunrise-circle {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    bottom: 240px;
+  }
+  .projects-text {
+    font-size: 60px;
+    top: 20%;
+    -webkit-text-stroke: 1.5px black;
+    text-stroke: 1.5px black;
+  }
+  .our-text, .portfolio-text {
+    font-size: 16px;
+    top: 26%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+  }
+
+  .our-text {
+    left: 20%;
+  }
+  .portfolio-text {
+    left: 80%;
+  }
+
+  .building-image {
+    top: 15%;
+    width: 100%;
+    height: 60%;
+  }
+  .hero-stats {
+    gap: 20px;
+    padding: 20px;
+    max-width: 90%;
+  }
+  .hero-button {
+    bottom: 18%;
+  }
+  .hero-button.left {
+    visibility: hidden;
+  }
+  .hero-button.right {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    height: 60px;
+    border-radius: 30px;
+  }
+  .hero-section {
+    height: 350px;
+  }
+  .projects-text {
+    font-size: 28px;
+  }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="./image/Concept_Logo_Black_April2025-01 1.png" alt="Concept Logo" class="logo-img">
+            </div>
+            <div class="navbar-menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link active">PROJECTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#for-sale" class="nav-link">FOR SALE</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-button">
+                <button class="signup-btn">SIGN UP</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="hero-section">
+        <div class="hero-top-background"></div>
+        <div class="sunrise-circle"></div>
+        <!-- Replace this src with your new project image -->
+        <img src="./image/a509dec0-1282-42bb-b6bf-d74f0dedcbdd 1.png" alt="Projects Portfolio" class="building-image">
+        <div class="projects-text">PROJECTS</div>
+        
+
+        <button class="hero-button left">View Gallery</button>
+        <button class="hero-button right">Get Quote</button>
+
+        <div class="hero-stats">
+            <div class="stat-item">
+                <h2>+500</h2>
+                <p>Exterior Projects</p>
+            </div>
+            <div class="stat-item">
+                <h2>+2k</h2>
+                <p>Interior Projects</p>
+                
+            </div>
+            <div class="stat-item">
+                <h2>+300</h2>
+                <p>Interior & Exterior Projects</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const building = document.querySelector('.building-image');
+            const heroSection = document.querySelector('.hero-section');
+            
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.pageYOffset;
+                const buildingOffset = scrollPosition * 0.1; 
+                
+                if (scrollPosition < heroSection.offsetHeight) {
+                    building.style.transform = `translateX(-50%) translateY(${buildingOffset}px)`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
