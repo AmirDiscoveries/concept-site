@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale Page - Concept Contracting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #E6E6E6;
+            height: 70px;
+            width: 100%;
+            max-width: 1400px;
+            border-radius: 35px;
+            margin: 0 auto 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 100px;
+            width: auto;
+        }
+
+        .navbar-menu {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin: 0 40px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #666;
+        }
+
+        .navbar-button {
+            flex-shrink: 0;
+        }
+
+        .signup-btn {
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .signup-btn:hover {
+            background-color: #333333;
+        }
+
+        .nav-link.active {
+            color: #D7DF21;
+            font-weight: 700;
+        }
+
+        /* Hero Section for Sale Item */
+        .hero-section {
+            width: 100%;
+            max-width: 1400px;
+            margin: 40px auto;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 50%);
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .hero-location {
+            background-color: #D7DF21;
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-location i {
+            font-size: 18px;
+        }
+
+        .hero-price {
+            background-color: #D7DF21;
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-top-controls {
+            position: absolute;
+            top: 30px;
+            left: 60px;
+            right: 60px;
+            z-index: 3;
+            display: flex;
+            justify-content: space-between;
+            width: calc(100% - 120px);
+        }
+
+        .hero-control-btn {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-control-btn:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .hero-control-btn i {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .hero-control-btn.arrow-btn i {
+            color: #D7DF21;
+        }
+
+        /* Layout and Features Section */
+        .details-section {
+            width: 100%;
+            max-width: 1400px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .house-layout-card,
+        .features-card {
+            background-color: #E6E6E6;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .house-layout-card {
+            max-width: 600px;
+        }
+
+        .features-card {
+            max-width: 600px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .layout-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .layout-item:last-child {
+            border-bottom: none;
+        }
+
+        .layout-label {
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .layout-value {
+            font-weight: 700;
+            color: #000;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-items: center;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .feature-item {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Company Description Section */
+        .company-description-section {
+            width: 100%;
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .description-content {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .description-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        /* Detailed Photos Section */
+        .detailed-photos-section {
+            width: 100%;
+            max-width: 1400px;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        .photos-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .photos-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-arrow {
+            background-color: #D7DF21;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-arrow:hover {
+            background-color: #c5cd1e;
+            transform: scale(1.1);
+        }
+
+        .header-arrow i {
+            font-size: 20px;
+            color: #000;
+        }
+
+        /* New styles for carousel arrows in header */
+        .photos-header .carousel-arrow {
+            /* Inherit common arrow styles, but adjust specific positioning if needed */
+            position: static; /* Remove absolute positioning */
+            transform: none; /* Remove any transform */
+        }
+        
+        .photos-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            overflow: hidden;
+        }
+
+        .photos-carousel {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s ease;
+            align-items: center;
+        }
+
+        .photo-item {
+            flex-shrink: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .photo-item.main {
+            width: 400px;
+            height: 400px;
+        }
+
+        .photo-item.side {
+            width: 280px;
+            height: 280px;
+            opacity: 0.8;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Remove these absolute positioning for carousel arrows inside photos-container */
+        /* .carousel-arrow {
+            background-color: #D7DF21;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 10;
+        } */
+
+        /* .carousel-arrow:hover {
+            background-color: #c5cd1e;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        } */
+
+        /* .carousel-arrow i {
+            font-size: 24px;
+            color: #000;
+        } */
+
+        .carousel-arrow.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* Photo indicators */
+        .photo-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: #D7DF21;
+            transform: scale(1.2);
+        }
+        .footer-section {
+            width: 100%;
+            max-width: 1400px;
+            margin: 40px auto 0;
+            padding: 40px;
+            background-color: #E6E6E6;
+            border-radius: 35px;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* 👈 Align all columns to the bottom */
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* 👈 Ensures content stacks from bottom */
+        }
+        .footer-logo-container {
+            margin-bottom: 20px;
+        }
+        .footer-logo-icon {
+            width: 200px; /* or even 220px */
+            height: auto;
+        }
+        .footer-copyright {
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 30px; /* Space between copyright and contact info */
+            text-transform: uppercase;
+            color: #333;
+        }
+        .footer-heading {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000;
+        }
+        .footer-nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-nav-list li {
+            margin-bottom: 12px; /* Space between list items */
+        }
+        .footer-nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 12px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+        .footer-contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px; /* Space between contact items */
+            font-size: 12px;
+            color: #333;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .icon-frame {
+            display: inline-flex;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF; /* White background for icons */
+            border-radius: 0; /* Square shape for icon background */
+        }
+        .working-hours {
+            font-size: 12px;
+            margin-bottom: 25px; /* Space between working hours and social icons */
+            line-height: 1.6;
+            text-transform: uppercase;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .navbar-nav {
+                gap: 40px;
+            }
+            .hero-section {
+                height: 500px;
+            }
+            .hero-content {
+                padding: 20px 40px;
+            }
+            .hero-top-controls {
+                left: 40px;
+                right: 40px;
+                width: calc(100% - 80px);
+            }
+            .details-section {
+                gap: 30px;
+            }
+            .house-layout-card,
+            .features-card {
+                padding: 25px;
+            }
+            .card-title {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+            .layout-item {
+                font-size: 15px;
+            }
+            .photo-item.main {
+                width: 350px;
+                height: 350px;
+            }
+            .photo-item.side {
+                width: 240px;
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar-container {
+                padding: 0 30px;
+            }
+            .navbar-nav {
+                gap: 30px;
+            }
+            .hero-section {
+                height: 450px;
+                margin: 30px auto;
+            }
+            .hero-content {
+                padding: 15px 30px;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .hero-top-controls {
+                left: 30px;
+                right: 30px;
+                width: calc(100% - 60px);
+            }
+            .details-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            .house-layout-card,
+            .features-card {
+                width: 90%;
+                max-width: 500px;
+            }
+            .card-title {
+                font-size: 20px;
+            }
+            .photo-item.main {
+                width: 300px;
+                height: 300px;
+            }
+            .photo-item.side {
+                width: 200px;
+                height: 200px;
+            }
+            .footer-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+            }
+            .footer-col {
+                width: 100%;
+                margin-bottom: 30px;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+            }
+            .hero-section {
+                height: 400px;
+                margin: 20px auto;
+                border-radius: 15px;
+            }
+            .hero-overlay {
+                border-radius: 15px;
+            }
+            .hero-content {
+                padding: 10px 20px;
+            }
+            .hero-top-controls {
+                top: 20px;
+                left: 20px;
+                right: 20px;
+                width: calc(100% - 40px);
+            }
+            .hero-control-btn {
+                width: 35px;
+                height: 35px;
+            }
+            .hero-location {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+            .hero-location i {
+                font-size: 16px;
+            }
+            .hero-price {
+                padding: 8px 15px;
+                font-size: 16px;
+            }
+            .details-section {
+                gap: 30px;
+            }
+            .house-layout-card,
+            .features-card {
+                padding: 20px;
+                border-radius: 15px;
+            }
+            .card-title {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            .layout-item {
+                font-size: 14px;
+                padding: 8px 0;
+            }
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: 15px;
+            }
+            .feature-item {
+                width: 75px;
+                height: 75px;
+                border-radius: 12px;
+            }
+
+            /* Mobile photos layout */
+            .photos-container {
+                gap: 15px;
+            }
+            .photo-item.main {
+                width: 250px;
+                height: 250px;
+            }
+            .photo-item.side {
+                width: 150px;
+                height: 150px;
+            }
+            /* Remove specific positioning for .carousel-arrow in mobile view, as they are now in header */
+            /* .carousel-arrow {
+                width: 50px;
+                height: 50px;
+            }
+            .carousel-arrow i {
+                font-size: 20px;
+            } */
+            .photos-header h2 {
+                font-size: 22px;
+            }
+            .header-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            .header-arrow i {
+                font-size: 16px;
+            }
+            .footer-logo-icon {
+                width: 150px;
+            }
+            .footer-heading {
+                font-size: 14px;
+            }
+            .footer-nav-link,
+            .contact-item,
+            .working-hours {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding: 10px;
+            }
+            .navbar {
+                height: 60px;
+                border-radius: 30px;
+                margin-bottom: 15px;
+            }
+            .navbar-container {
+                padding: 0 15px;
+            }
+            .logo-img {
+                height: 80px;
+            }
+            .signup-btn {
+                padding: 8px 18px;
+                font-size: 11px;
+            }
+            .hero-section {
+                height: 350px;
+                margin: 15px auto;
+                border-radius: 10px;
+            }
+            .hero-overlay {
+                border-radius: 10px;
+            }
+            .hero-content {
+                padding: 10px 15px;
+                gap: 15px;
+            }
+            .hero-top-controls {
+                top: 15px;
+                left: 15px;
+                right: 15px;
+                width: calc(100% - 30px);
+            }
+            .hero-control-btn {
+                width: 35px;
+                height: 35px;
+            }
+            .hero-location,
+            .hero-price {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+            .hero-price {
+                font-size: 14px;
+            }
+            .details-section {
+                gap: 25px;
+            }
+            .house-layout-card,
+            .features-card {
+                padding: 15px;
+                border-radius: 10px;
+                min-width: unset;
+                width: 100%;
+            }
+            .card-title {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            .layout-item {
+                font-size: 13px;
+                padding: 6px 0;
+            }
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+                gap: 10px;
+            }
+            .feature-item {
+                width: 60px;
+                height: 60px;
+                border-radius: 10px;
+            }
+
+            .description-content p {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            /* Mobile single photo view */
+            .photos-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .photo-item.side {
+                display: none;
+            }
+            .photo-item.main {
+                width: 100%;
+                max-width: 300px;
+                height: 300px;
+            }
+            /* Adjust position of header arrows for mobile */
+            .photos-header .carousel-arrow {
+                /* Since they are in the header, they will center with the title */
+                width: 40px;
+                height: 40px;
+            }
+            .photos-header .carousel-arrow i {
+                font-size: 16px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="./image/Concept_Logo_Black_April2025-01 1.png" alt="Concept Logo" class="logo-img">
+            </div>
+            <div class="navbar-menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="index.html#home" class="nav-link">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#services" class="nav-link">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#projects" class="nav-link">PROJECTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#for-sale" class="nav-link">FOR SALE</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-button">
+                <button class="signup-btn">SIGN UP</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-section" style="background-image: url('image/living-room-with-couch-vase-with-flowers-it\ 1.png');">
+            <div class="hero-overlay"></div>
+            <div class="hero-top-controls">
+                <button class="hero-control-btn arrow-btn"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="hero-control-btn"><i class="fa-solid fa-heart"></i></button>
+            </div>
+            <div class="hero-content">
+                <div class="hero-location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    CHOUKINE-NABATIYE-LEBANON
+                </div>
+                <div class="hero-price">
+                    For 50k $
+                </div>
+            </div>
+        </section>
+
+        <section class="details-section">
+            <div class="house-layout-card">
+                <h2 class="card-title">HOUSE LAYOUT</h2>
+                <div class="layout-info">
+                    <div class="layout-item">
+                        <span class="layout-label">TOTAL AREA</span>
+                        <span class="layout-value">777 M2</span>
+                    </div>
+                    <div class="layout-item">
+                        <span class="layout-label">FLOORS</span>
+                        <span class="layout-value">5</span>
+                    </div>
+                    <div class="layout-item">
+                        <span class="layout-label">ROOMS</span>
+                        <span class="layout-value">9</span>
+                    </div>
+                    <div class="layout-item">
+                        <span class="layout-label">BATHROOMS</span>
+                        <span class="layout-value">6</span>
+                    </div>
+                    <div class="layout-item">
+                        <span class="layout-label">CEILING HEIGHT</span>
+                        <span class="layout-value">4 m</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-card">
+                <h2 class="card-title">FEATURES</h2>
+                <div class="features-grid">
+                    <div class="feature-item"></div>
+                    <div class="feature-item"></div>
+                    <div class="feature-item"></div>
+                    <div class="feature-item"></div>
+                    <div class="feature-item"></div>
+                    <div class="feature-item"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="company-description-section">
+            <div class="description-content">
+                <p>At [Your Company Name], we believe real estate is more than just buying or selling property – it's about helping people find where life happens. With deep local expertise, personalized service, and a commitment to transparency, we guide you through every step of the journey. Whether you're a first-time buyer, seasoned investor, or ready to sell, we're here to make the process seamless and stress-free. Because for us, home isn't just a place – it's where your story begins. We believe real estate is more than just buying or selling property –</p>
+            </div>
+        </section>
+
+        <section class="detailed-photos-section">
+            <div class="photos-header">
+                <button class="header-arrow carousel-arrow left" id="prevBtn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <h2>DETAILED PHOTOS</h2>
+                <button class="header-arrow carousel-arrow right" id="nextBtn">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="photos-container">
+                
+                <div class="photos-carousel" id="photosCarousel">
+                    <div class="photo-item side">
+                        <img src="image/living-room-with-couch-vase-with-flowers-it 2.png" alt="House Photo 1">
+                    </div>
+                    <div class="photo-item main">
+                        <img src="image/grey-living-room-interior-with-couch-armchairs-with-decoration-window (1) 1.png" alt="House Photo 2">
+                    </div>
+                    <div class="photo-item side">
+                        <img src="image/room-with-fire-place-fire-place-with-white-chair-fire-place-it 1.png" alt="House Photo 3">
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="photo-indicators" id="indicators">
+                </div>
+        </section>
+    </main>
+
+    <script>
+        // Photo carousel functionality
+        class PhotoCarousel {
+            constructor() {
+                this.photos = [
+                    'image/living-room-with-couch-vase-with-flowers-it 2.png',
+                    'image/grey-living-room-interior-with-couch-armchairs-with-decoration-window (1) 1.png',
+                    'image/room-with-fire-place-fire-place-with-white-chair-fire-place-it 1.png'
+                    
+                ];
+                this.currentIndex = 1; // Start with middle photo as main
+                this.carousel = document.getElementById('photosCarousel');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.indicatorsContainer = document.getElementById('indicators');
+                
+                this.init();
+            }
+            
+            init() {
+                this.createIndicators();
+                this.updateCarousel();
+                this.bindEvents();
+            }
+            
+            createIndicators() {
+                this.indicatorsContainer.innerHTML = '';
+                this.photos.forEach((_, index) => {
+                    const indicator = document.createElement('div');
+                    indicator.classList.add('indicator');
+                    if (index === this.currentIndex) {
+                        indicator.classList.add('active');
+                    }
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                    this.indicatorsContainer.appendChild(indicator);
+                });
+            }
+            
+            updateCarousel() {
+                const isMobile = window.innerWidth <= 576;
+                
+                if (isMobile) {
+                    // Mobile: show only main photo
+                    this.carousel.innerHTML = `
+                        <div class="photo-item main">
+                            <img src="${this.photos[this.currentIndex]}" alt="House Photo ${this.currentIndex + 1}">
+                        </div>
+                    `;
+                } else {
+                    // Desktop: show three photos
+                    const prevIndex = this.currentIndex === 0 ? this.photos.length - 1 : this.currentIndex - 1;
+                    const nextIndex = this.currentIndex === this.photos.length - 1 ? 0 : this.currentIndex + 1;
+                    
+                    this.carousel.innerHTML = `
+                        <div class="photo-item side">
+                            <img src="${this.photos[prevIndex]}" alt="House Photo ${prevIndex + 1}">
+                        </div>
+                        <div class="photo-item main">
+                            <img src="${this.photos[this.currentIndex]}" alt="House Photo ${this.currentIndex + 1}">
+                        </div>
+                        <div class="photo-item side">
+                            <img src="${this.photos[nextIndex]}" alt="House Photo ${nextIndex + 1}">
+                        </div>
+                    `;
+                }
+                
+                this.updateIndicators();
+                this.updateArrowStates();
+            }
+            
+            updateIndicators() {
+                const indicators = this.indicatorsContainer.querySelectorAll('.indicator');
+                indicators.forEach((indicator, index) => {
+                    if (index === this.currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+
+            updateArrowStates() {
+                // Since we're using a circular carousel for desktop, arrows are always enabled.
+                // For mobile, if you want to disable at ends, you'd add logic here.
+                // For now, they remain enabled.
+                this.prevBtn.classList.remove('disabled');
+                this.nextBtn.classList.remove('disabled');
+            }
+
+            goToSlide(index) {
+                this.currentIndex = index;
+                this.updateCarousel();
+            }
+
+            nextSlide() {
+                this.currentIndex = (this.currentIndex + 1) % this.photos.length;
+                this.updateCarousel();
+            }
+
+            prevSlide() {
+                this.currentIndex = (this.currentIndex - 1 + this.photos.length) % this.photos.length;
+                this.updateCarousel();
+            }
+
+            bindEvents() {
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                window.addEventListener('resize', () => this.updateCarousel()); // Re-render on resize for mobile/desktop view
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new PhotoCarousel();
+        });
+    </script>
+         <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo-container">
+                    <img src="image/Concept_Logo_Black_April2025-01 1.png" alt="Concept Logo" class="footer-logo-icon">
+                </div>
+                <p class="footer-copyright">© 2025 CONCEPT, DESIGNED FOR LIFE.</p>
+                <ul class="footer-contact-list">
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/icon_design.png" alt="location"></span> MAYFADOUN-NABATIVE-LEBANON
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/icon_design (1).png" alt="email"></span> COBCEPT@gmail.com
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/icon_design (2).png" alt="phone"></span> +961 000 000
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-heading">QUICK LINK</h3>
+                <ul class="footer-nav-list">
+                    <li><a href="#home" class="footer-nav-link">HOME</a></li>
+                    <li><a href="#services" class="footer-nav-link">SERVICES</a></li>
+                    <li><a href="#projects" class="footer-nav-link">PROJECTS</a></li>
+                    <li><a href="#for-sale" class="footer-nav-link">FOR SALE</a></li>
+                    <li><a href="#contact" class="footer-nav-link">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-heading">WORKING TIME</h3>
+                <p class="working-hours">MONDAY - FRIDAY<br>8 AM - 5 PM</p>
+                <ul class="footer-contact-list">
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/ELEMENTS (1).png" alt="phone"></span> +961 000 000
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/ELEMENTS (2).png" alt="social"></span> conseptconstruction
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/ELEMENTS.png" alt="social"></span> conseptconstruction
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
