@@ -264,6 +264,151 @@ body {
   margin-top: 4px;
 }
 
+/* Interior Section */
+.interior-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 80px auto;
+  padding: 0 40px;
+  background-color: #fff;
+}
+
+.interior-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.interior-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.interior-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 60px;
+  line-height: 1.5;
+}
+
+.interior-gallery {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+.gallery-arrow {
+  background-color: #d6df20;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.gallery-arrow:hover {
+  background-color: #c5cd1e;
+  transform: scale(1.1);
+}
+
+.gallery-container {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.5s ease;
+}
+
+.project-card {
+  flex: 0 0 calc(33.333% - 20px);
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 280px;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-image-wrapper {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 25px 25px 15px;
+  line-height: 1.3;
+}
+
+.project-description {
+  font-size: 13px;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 25px 25px;
+}
+
+.view-project-btn {
+  background-color: #d6df20;
+  color: #000;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 25px 25px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-project-btn:hover {
+  background-color: #c5cd1e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* Parallax Effect */
 @media (prefers-reduced-motion: no-preference) {
   .building-image {
@@ -279,6 +424,15 @@ body {
   .navbar-nav {
     gap: 40px;
   }
+  
+  .interior-gallery {
+    gap: 20px;
+  }
+  
+  .gallery-arrow {
+    width: 45px;
+    height: 45px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -287,6 +441,11 @@ body {
   }
   .navbar-nav {
     gap: 30px;
+  }
+  
+  .project-card {
+    flex: 0 0 calc(50% - 15px);
+    min-width: 250px;
   }
 }
 
@@ -348,6 +507,33 @@ body {
   .hero-button.right {
     visibility: hidden;
   }
+  
+  /* Interior Section Mobile */
+  .interior-title {
+    font-size: 32px;
+  }
+  
+  .interior-subtitle {
+    font-size: 14px;
+  }
+  
+  .interior-gallery {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .gallery-container {
+    width: 100%;
+  }
+  
+  .project-card {
+    flex: 0 0 100%;
+    min-width: auto;
+  }
+  
+  .gallery-arrow {
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
@@ -360,6 +546,26 @@ body {
   }
   .projects-text {
     font-size: 28px;
+  }
+  
+  .interior-section {
+    padding: 0 20px;
+  }
+  
+  .interior-title {
+    font-size: 24px;
+  }
+  
+  .project-image-wrapper {
+    height: 200px;
+  }
+  
+  .project-title {
+    font-size: 14px;
+  }
+  
+  .project-description {
+    font-size: 12px;
   }
 }
     </style>
@@ -395,10 +601,8 @@ body {
     <div class="hero-section">
         <div class="hero-top-background"></div>
         <div class="sunrise-circle"></div>
-        <!-- Replace this src with your new project image -->
         <img src="./image/a509dec0-1282-42bb-b6bf-d74f0dedcbdd 1.png" alt="Projects Portfolio" class="building-image">
         <div class="projects-text">PROJECTS</div>
-        
 
         <button class="hero-button left">View Gallery</button>
         <button class="hero-button right">Get Quote</button>
@@ -411,7 +615,6 @@ body {
             <div class="stat-item">
                 <h2>+2k</h2>
                 <p>Interior Projects</p>
-                
             </div>
             <div class="stat-item">
                 <h2>+300</h2>
@@ -419,6 +622,71 @@ body {
             </div>
         </div>
     </div>
+
+    <!-- Interior Section -->
+    <section class="interior-section">
+        <div class="interior-container">
+            <h2 class="interior-title">INTERIOR</h2>
+            <p class="interior-subtitle">
+                At [Your Company Name], we believe real estate is more than just buying or<br>
+                selling property — it's about helping people find where life happens.
+            </p>
+            
+            <div class="interior-gallery">
+                <!-- Left Arrow -->
+                <button class="gallery-arrow left-arrow" onclick="slideGallery(-1)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Gallery Container -->
+                <div class="gallery-container">
+                    <div class="gallery-track" id="galleryTrack">
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/interior-1.jpg" alt="Modern Living Room" class="project-img">
+                            </div>
+                            <h3 class="project-title">REAL ESTATE DEVELOPMENT</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/interior-2.jpg" alt="Modern Bedroom" class="project-img">
+                            </div>
+                            <h3 class="project-title">INTERIOR DESIGN</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/interior-3.jpg" alt="Modern Kitchen" class="project-img">
+                            </div>
+                            <h3 class="project-title">HAS3S3A AJDAIDUDE</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Arrow -->
+                <button class="gallery-arrow right-arrow" onclick="slideGallery(1)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -434,6 +702,33 @@ body {
                 }
             });
         });
+
+        // Gallery Slider Functionality
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function slideGallery(direction) {
+            const galleryTrack = document.getElementById('galleryTrack');
+            const cardWidth = 33.333;
+            
+            currentSlide += direction;
+            
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            
+            const translateX = -currentSlide * cardWidth;
+            galleryTrack.style.transform = `translateX(${translateX}%)`;
+        }
+
+        // Auto-slide functionality
+        setInterval(() => {
+            if (window.innerWidth > 768) {
+                slideGallery(1);
+            }
+        }, 5000);
     </script>
 </body>
 </html>
