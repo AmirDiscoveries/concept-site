@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: Roboto;
   background-color: #fff;
   padding: 20px;
 }
@@ -295,7 +295,57 @@ body {
   line-height: 1.5;
 }
 
+/* Section Divider */
+.section-divider {
+  width: 100%;
+  max-width: 1200px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, #d6df20 50%, transparent 100%);
+  margin: 60px auto;
+  border-radius: 2px;
+}
+
+/* Exterior Section */
+.exterior-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 80px auto;
+  padding: 0 40px;
+  background-color: #fff;
+}
+
+.exterior-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.exterior-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.exterior-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 60px;
+  line-height: 1.5;
+}
+
+/* Gallery Styles (shared by both interior and exterior) */
+
 .interior-gallery {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+.exterior-gallery {
   display: flex;
   align-items: center;
   gap: 30px;
@@ -377,6 +427,7 @@ body {
   letter-spacing: 0.5px;
   margin: 25px 25px 15px;
   line-height: 1.3;
+  text-align: center;
 }
 
 .project-description {
@@ -386,7 +437,9 @@ body {
   line-height: 1.5;
   margin: 0 25px 25px;
 }
-
+.footer-nav-link:hover {
+  color: #000;
+}
 .view-project-btn {
   background-color: #d6df20;
   color: #000;
@@ -399,14 +452,107 @@ body {
   letter-spacing: 0.5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: 0 25px 25px;
+  margin: 0 auto 25px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  display: block;
 }
 
 .view-project-btn:hover {
   background-color: #c5cd1e;
   transform: translateY(-2px);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+.footer-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px auto 0;
+  padding: 40px;
+  background-color: #E6E6E6;
+  border-radius: 35px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* 👈 Align all columns to the bottom */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* 👈 Ensures content stacks from bottom */
+}
+.footer-logo-container {
+  margin-bottom: 20px;
+}
+.footer-logo-icon {
+  width: 200px; /* or even 220px */
+  height: auto;
+}
+.footer-copyright {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 30px; /* Space between copyright and contact info */
+  text-transform: uppercase;
+  color: #333;
+}
+.footer-heading {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+}
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-nav-list li {
+  margin-bottom: 12px; /* Space between list items */
+}
+.footer-nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 12px;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px; /* Space between contact items */
+  font-size: 12px;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.icon-frame {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF; /* White background for icons */
+  border-radius: 0; /* Square shape for icon background */
+}
+.working-hours {
+  font-size: 12px;
+  margin-bottom: 25px; /* Space between working hours and social icons */
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: #333;
+  font-weight: 500;
 }
 
 /* Parallax Effect */
@@ -425,7 +571,7 @@ body {
     gap: 40px;
   }
   
-  .interior-gallery {
+  .interior-gallery, .exterior-gallery {
     gap: 20px;
   }
   
@@ -446,6 +592,16 @@ body {
   .project-card {
     flex: 0 0 calc(50% - 15px);
     min-width: 250px;
+  }
+  .footer-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+  .footer-col {
+    width: 100%;
+    margin-bottom: 30px;
+    align-items: center;
   }
 }
 
@@ -508,16 +664,16 @@ body {
     visibility: hidden;
   }
   
-  /* Interior Section Mobile */
-  .interior-title {
+  /* Interior & Exterior Section Mobile */
+  .interior-title, .exterior-title {
     font-size: 32px;
   }
   
-  .interior-subtitle {
+  .interior-subtitle, .exterior-subtitle {
     font-size: 14px;
   }
   
-  .interior-gallery {
+  .interior-gallery, .exterior-gallery {
     flex-direction: column;
     gap: 20px;
   }
@@ -534,6 +690,17 @@ body {
   .gallery-arrow {
     display: none;
   }
+   .footer-logo-icon {
+    width: 150px;
+  }
+  .footer-heading {
+    font-size: 14px;
+  }
+  .footer-nav-link,
+  .contact-item,
+  .working-hours {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -548,11 +715,11 @@ body {
     font-size: 28px;
   }
   
-  .interior-section {
+  .interior-section, .exterior-section {
     padding: 0 20px;
   }
   
-  .interior-title {
+  .interior-title, .exterior-title {
     font-size: 24px;
   }
   
@@ -634,7 +801,7 @@ body {
             
             <div class="interior-gallery">
                 <!-- Left Arrow -->
-                <button class="gallery-arrow left-arrow" onclick="slideGallery(-1)">
+                <button class="gallery-arrow left-arrow" onclick="slideGallery(-1, 'interior')">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -642,10 +809,10 @@ body {
                 
                 <!-- Gallery Container -->
                 <div class="gallery-container">
-                    <div class="gallery-track" id="galleryTrack">
+                    <div class="gallery-track" id="interiorGalleryTrack">
                         <div class="project-card">
                             <div class="project-image-wrapper">
-                                <img src="./image/interior-1.jpg" alt="Modern Living Room" class="project-img">
+                                <img src="./image/luxury-home-interior-design 1.png" alt="Modern Living Room" class="project-img">
                             </div>
                             <h3 class="project-title">REAL ESTATE DEVELOPMENT</h3>
                             <p class="project-description">
@@ -656,7 +823,7 @@ body {
                         
                         <div class="project-card">
                             <div class="project-image-wrapper">
-                                <img src="./image/interior-2.jpg" alt="Modern Bedroom" class="project-img">
+                                <img src="./image/smart-home-technology-modern-technologically-advanced-living-space 1.png" alt="Modern Bedroom" class="project-img">
                             </div>
                             <h3 class="project-title">INTERIOR DESIGN</h3>
                             <p class="project-description">
@@ -667,7 +834,135 @@ body {
                         
                         <div class="project-card">
                             <div class="project-image-wrapper">
-                                <img src="./image/interior-3.jpg" alt="Modern Kitchen" class="project-img">
+                                <img src="./image/3d-rendering3d-illustration-interior-scene-mockupmodern-style-living-rooma-large-beige-sofa-chandelier-middle-room 1.png" alt="Modern Kitchen" class="project-img">
+                            </div>
+                            <h3 class="project-title">LUXURY RENOVATION</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                         <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/living-room-apartment-image.jpg" alt="Modern Living Room" class="project-img">
+                            </div>
+                            <h3 class="project-title">REAL ESTATE DEVELOPMENT</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                         <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/stylish-home-modern-interior-design-background.jpg" alt="Modern Living Room" class="project-img">
+                            </div>
+                            <h3 class="project-title">REAL ESTATE DEVELOPMENT</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                         <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/photorealistic-wooden-house-interior-with-timber-decor-furnishings.jpg" alt="Modern Living Room" class="project-img">
+                            </div>
+                            <h3 class="project-title">REAL ESTATE DEVELOPMENT</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Arrow -->
+                <button class="gallery-arrow right-arrow" onclick="slideGallery(1, 'interior')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Exterior Section -->
+    <section class="exterior-section">
+        <div class="exterior-container">
+            <h2 class="exterior-title">EXTERIOR</h2>
+            <p class="exterior-subtitle">
+                At [Your Company Name], we believe real estate is more than just buying or<br>
+                selling property — it's about helping people find where life happens.
+            </p>
+            
+            <div class="exterior-gallery">
+                <!-- Left Arrow -->
+                <button class="gallery-arrow left-arrow" onclick="slideGallery(-1, 'exterior')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Gallery Container -->
+                <div class="gallery-container">
+                    <div class="gallery-track" id="exteriorGalleryTrack">
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/3d-rendering-house-model 1.png" alt="Modern Exterior Design" class="project-img">
+                            </div>
+                            <h3 class="project-title">REAL ESTATE DEVELOPMENT</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/building-with-large-window-that-says-name-house 1.png" alt="Contemporary Architecture" class="project-img">
+                            </div>
+                            <h3 class="project-title">INTERIOR DESIGN</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/house-with-lot-windows-bench-front-it 1.png" alt="Luxury Exterior" class="project-img">
+                            </div>
+                            <h3 class="project-title">HAS3S3A AJDAIDUDE</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/modern-minimalist-living-room.jpg" alt="Luxury Exterior" class="project-img">
+                            </div>
+                            <h3 class="project-title">HAS3S3A AJDAIDUDE</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/modern-luxury-villa-with-pool (1).jpg" alt="Luxury Exterior" class="project-img">
+                            </div>
+                            <h3 class="project-title">HAS3S3A AJDAIDUDE</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/building-with-car-parked-front-it.jpg" alt="Luxury Exterior" class="project-img">
                             </div>
                             <h3 class="project-title">HAS3S3A AJDAIDUDE</h3>
                             <p class="project-description">
@@ -679,7 +974,7 @@ body {
                 </div>
                 
                 <!-- Right Arrow -->
-                <button class="gallery-arrow right-arrow" onclick="slideGallery(1)">
+                <button class="gallery-arrow right-arrow" onclick="slideGallery(1, 'exterior')">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -687,6 +982,102 @@ body {
             </div>
         </div>
     </section>
+    <div class="section-divider"></div>
+     <!-- Exterior&Interior Section -->
+    <section class="exterior-section">
+        <div class="exterior-container">
+            <h2 class="exterior-title">EXTERIOR & INTERIOR</h2>
+            <p class="exterior-subtitle">
+                At [Your Company Name], we believe real estate is more than just buying or<br>
+                selling property — it's about helping people find where life happens.
+            </p>
+            
+            <div class="exterior-gallery">
+                <!-- Left Arrow -->
+                <button class="gallery-arrow left-arrow" onclick="slideGallery(-1, 'exteriorInterior')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Gallery Container -->
+                <div class="gallery-container">
+                    <div class="gallery-track" id="exteriorInteriorGalleryTrack">
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/room-with-plant-hanging-from-ceiling-man-walking-up-stairs 1.png" alt="Modern Exterior Design" class="project-img">
+                            </div>
+                            <h3 class="project-title">REAL ESTATE DEVELOPMENT</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/luminous-modern-hall-with-white-wooden-walls-large-windows-with-glass-doors 1.png" alt="Contemporary Architecture" class="project-img">
+                            </div>
+                            <h3 class="project-title">INTERIOR DESIGN</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/3d-render-exterior-interior-house-design 1.png" alt="Luxury Exterior" class="project-img">
+                            </div>
+                            <h3 class="project-title">COMPLETE HOME DESIGN</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                       <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/modern-living-room-with-doubleheight-ceilings-large-windows-overlooking-garden-forest-b.jpg" alt="Luxury Exterior" class="project-img">
+                            </div>
+                            <h3 class="project-title">COMPLETE HOME DESIGN</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                         <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/house-with-lot-windows-tree-foreground.jpg" alt="Luxury Exterior" class="project-img">
+                            </div>
+                            <h3 class="project-title">COMPLETE HOME DESIGN</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                          <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="./image/3d-render-design.jpg" alt="Luxury Exterior" class="project-img">
+                            </div>
+                            <h3 class="project-title">COMPLETE HOME DESIGN</h3>
+                            <p class="project-description">
+                                At [Your Company Name], we believe real estate is more than just buying or selling property — it's about helping people find where life happens.
+                            </p>
+                            <button class="view-project-btn">VIEW PROJECT</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Arrow -->
+                <button class="gallery-arrow right-arrow" onclick="slideGallery(1, 'exteriorInterior')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -704,31 +1095,83 @@ body {
         });
 
         // Gallery Slider Functionality
-        let currentSlide = 0;
-        const totalSlides = 3;
+       // Gallery Slider Functionality
+        const galleryStates = {
+            interior: { currentSlide: 0, totalSlides: 6 },
+            exterior: { currentSlide: 0, totalSlides: 6 }, // Changed from 3 to 6
+            exteriorInterior: { currentSlide: 0, totalSlides: 4 }
+        };
 
-        function slideGallery(direction) {
-            const galleryTrack = document.getElementById('galleryTrack');
-            const cardWidth = 33.333;
-            
-            currentSlide += direction;
-            
-            if (currentSlide >= totalSlides) {
-                currentSlide = 0;
-            } else if (currentSlide < 0) {
-                currentSlide = totalSlides - 1;
+        function slideGallery(direction, galleryType) {
+            const galleryTrack = document.getElementById(`${galleryType}GalleryTrack`);
+            // Assuming 3 cards are visible at a time for desktop, so each "slide" moves by 1 card
+            const cardsVisible = getComputedStyle(galleryTrack).flexDirection === 'column' ? 1 : 3;
+            const cardWidthPercentage = 100 / cardsVisible; // For a single card movement, this would be 33.333
+
+            const state = galleryStates[galleryType];
+
+            state.currentSlide += direction;
+
+            // Loop back to the start if we go past the end
+            if (state.currentSlide > state.totalSlides - cardsVisible) {
+                state.currentSlide = 0;
+            } else if (state.currentSlide < 0) {
+                state.currentSlide = state.totalSlides - cardsVisible;
             }
-            
-            const translateX = -currentSlide * cardWidth;
-            galleryTrack.style.transform = `translateX(${translateX}%)`;
+
+            const translateX = -state.currentSlide * (100 / (state.totalSlides / cardsVisible)); // Adjust for dynamic card movement
+             if (getComputedStyle(galleryTrack).flexDirection === 'column') {
+                galleryTrack.style.transform = `translateY(${-state.currentSlide * 100}%)`;
+            } else {
+                galleryTrack.style.transform = `translateX(${-state.currentSlide * (100 / cardsVisible)}%)`;
+            }
         }
-
-        // Auto-slide functionality
-        setInterval(() => {
-            if (window.innerWidth > 768) {
-                slideGallery(1);
-            }
-        }, 5000);
     </script>
+     <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo-container">
+                    <img src="image/Concept_Logo_Black_April2025-01 1.png" alt="Concept Logo" class="footer-logo-icon">
+                </div>
+                <p class="footer-copyright">© 2025 CONCEPT, DESIGNED FOR LIFE.</p>
+                <ul class="footer-contact-list">
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/icon_design.png" alt="location"></span> MAYFADOUN-NABATIVE-LEBANON
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/icon_design (1).png" alt="email"></span> COBCEPT@gmail.com
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/icon_design (2).png" alt="phone"></span> +961 000 000
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-heading">QUICK LINK</h3>
+                <ul class="footer-nav-list">
+                    <li><a href="#home" class="footer-nav-link">HOME</a></li>
+                    <li><a href="#services" class="footer-nav-link">SERVICES</a></li>
+                    <li><a href="#projects" class="footer-nav-link">PROJECTS</a></li>
+                    <li><a href="#for-sale" class="footer-nav-link">FOR SALE</a></li>
+                    <li><a href="#contact" class="footer-nav-link">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-heading">WORKING TIME</h3>
+                <p class="working-hours">MONDAY - FRIDAY<br>8 AM - 5 PM</p>
+                <ul class="footer-contact-list">
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/ELEMENTS (1).png" alt="phone"></span> +961 000 000
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/ELEMENTS (2).png" alt="social"></span> conseptconstruction
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon-frame"><img src="image/ELEMENTS.png" alt="social"></span> conseptconstruction
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
